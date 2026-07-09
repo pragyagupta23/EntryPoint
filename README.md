@@ -159,5 +159,3 @@ Use [Postman](https://www.postman.com/) to test the API endpoints.
 3. Add the token to the `Authorization` header as `Bearer <token>`
 4. Test all protected endpoints
 
----
-
