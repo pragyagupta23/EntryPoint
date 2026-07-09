@@ -161,7 +161,3 @@ Use [Postman](https://www.postman.com/) to test the API endpoints.
 
 ---
 
-## 👩‍💻 Author
-
-**Pragya Gupta**  
-[GitHub](https://github.com/pragyagupta23)
