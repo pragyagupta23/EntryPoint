@@ -17,8 +17,8 @@ spring:
       context-path: /entrypoint
   data:
     redis:
-      host: ${REDIS_HOST:localhost}
-      port: 15641
+      host: ${REDIS_HOST}
+      port: 15328
       password: ${REDIS_PASSWORD:}
     mongodb:
       uri: ${MONGODB_URI}
@@ -50,13 +50,7 @@ spring:
             trusted:
               packages: com.pragyagupta.entrypoint.model
     properties:
-      security:
-        protocol: SASL_SSL
-      sasl:
-        mechanism: PLAIN
-        jaas:
-          config: ${KAFKA_JAAS_CONFIG:}
-      session:
-        timeout:
-          ms: 45000
-
+      security.protocol: SASL_SSL
+      sasl.mechanism: PLAIN
+      sasl.jaas.config: org.apache.kafka.common.security.plain.PlainLoginModule required username='X' password='X';
+      session.timeout.ms: 45000
