@@ -1,8 +1,0 @@
-[phases.setup]
-nixPkgs = ["jdk17"]
-
-[phases.build]
-cmds = ["./mvnw -DskipTests clean package -Pproduction"]
-
-[start]
-cmd = "java -jar target/*.jar"
