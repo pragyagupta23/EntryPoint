@@ -1,6 +1,12 @@
 weather:
   api:
     key: ${WEATHER_API_KEY:}
+
+server:
+  port: ${PORT:8080}
+  servlet:
+    context-path: /entrypoint
+
 spring:
   security:
     oauth2:
@@ -11,10 +17,6 @@ spring:
             client-secret: ${GOOGLE_CLIENT_SECRET:}
   main:
     allow-circular-references: true
-  server:
-    port: ${PORT:8080}
-    servlet:
-      context-path: /entrypoint
   data:
     redis:
       host: ${REDIS_HOST}
@@ -35,6 +37,8 @@ spring:
           auth: true
           starttls:
             enable: true
+
+
 #  kafka:
 #    bootstrap-servers: ${KAFKA_SERVERS:localhost:9092}
 #    producer:
