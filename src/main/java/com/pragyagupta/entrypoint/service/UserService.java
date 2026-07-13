@@ -28,11 +28,7 @@ public class UserService {
             userRepository.save(user);
             return true;
         } catch (Exception e) {
-            log.error("hahahhahhahahahah");
-            log.warn("hahahhahhahahahah");
-            log.info("hahahhahhahahahah");
-            log.debug("hahahhahhahahahah");
-            log.trace("hahahhahhahahahah");
+            log.error("Failed to save new user: {}", e.getMessage(), e);
             return false;
         }
     }
@@ -41,6 +37,16 @@ public class UserService {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         user.setRoles(Arrays.asList("USER", "ADMIN"));
         userRepository.save(user);
+    }
+
+    public void updateUser(User existingUser, String newUserName, String newPassword) {
+        if (newUserName != null && !newUserName.isBlank()) {
+            existingUser.setUserName(newUserName);
+        }
+        if (newPassword != null && !newPassword.isBlank()) {
+            existingUser.setPassword(passwordEncoder.encode(newPassword));
+        }
+        userRepository.save(existingUser);
     }
 
     public void saveUser(User user) {
