@@ -1,5 +1,6 @@
 package com.pragyagupta.entrypoint.controller;
 
+import com.pragyagupta.entrypoint.dto.LoginDTO;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.extern.slf4j.Slf4j;
 import com.pragyagupta.entrypoint.dto.UserDTO;
@@ -48,7 +49,7 @@ public class PublicController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<String> login(@RequestBody User user) {
+    public ResponseEntity<String> login(@RequestBody LoginDTO user) {
         try{
             authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(user.getUserName(), user.getPassword()));
