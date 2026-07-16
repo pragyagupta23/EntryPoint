@@ -17,7 +17,6 @@ import org.springframework.web.client.RestTemplate;
 public class EntryPointApplication {
 
     public static void main(String[] args) {
-        System.out.println("=== DEBUG MONGODB_URI: [" + System.getenv("MONGODB_URI") + "] ===");
         SpringApplication.run(EntryPointApplication.class, args);
     }
 
