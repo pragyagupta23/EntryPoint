@@ -39,13 +39,18 @@ public class PublicController {
     }
 
     @PostMapping("/signup")
-    public void signup(@RequestBody UserDTO user) {
+    public ResponseEntity<String> signup(@RequestBody UserDTO user) {
         User newUser = new User();
         newUser.setEmail(user.getEmail());
         newUser.setUserName(user.getUserName());
         newUser.setPassword(user.getPassword());
         newUser.setSentimentAnalysis(user.isSentimentAnalysis());
-        userService.saveNewUser(newUser);
+
+        boolean saved = userService.saveNewUser(newUser);
+        if (!saved) {
+            return new ResponseEntity<>("Signup failed - username may already exist", HttpStatus.CONFLICT);
+        }
+        return new ResponseEntity<>("Signup successful", HttpStatus.OK);
     }
 
     @PostMapping("/login")
